@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recent Earthquakes</title>
+</head>
+<body>
+    <h1>Recent Earthquakes</h1>
+
+    {% if result %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Magnitude</th>
+                    <th>Place</th>
+                    <th>Time</th>
+                    <th>Details</th>
+                    <th>Alert</th>
+                    <th>Status</th>
+                    <th>Tsunami</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for earthquake in result %}
+                    <tr>
+                        <td>{{ earthquake.id }}</td>
+                        <td>{{ earthquake.mag }}</td>
+                        <td>{{ earthquake.place }}</td>
+                        <td>{{ earthquake.time }}</td>
+                        <td><a href="{{ earthquake.url }}" target="_blank">Details</a></td>
+                        <td>{{ earthquake.alert }}</td>
+                        <td>{{ earthquake.status }}</td>
+                        <td>{{ earthquake.tsunami }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>{{ result[0].error }}</p>
+    {% endif %}
+</body>
+</html>

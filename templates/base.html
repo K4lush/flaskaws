@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Data</title>
+</head>
+<body>
+    <h1>Weather Data</h1>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Temperature</th>
+            <th>Humidity</th>
+        </tr>
+        {% for entry in weather_entries %}
+            <tr>
+                <td>{{ entry.date }}</td>
+                <td>{{ entry.temperature }}</td>
+                <td>{{ entry.humidity }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
